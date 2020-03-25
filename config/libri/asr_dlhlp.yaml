@@ -1,7 +1,7 @@
 data:
   corpus:
     name: 'Dlhlp'                   # Specify corpus
-    path: '/Users/halley/Desktop/DLHLP2020/Homework/hw1/DLHLP/'          # Path to raw LibriSpeech dataset
+    path: './dataset/'          # Path to raw LibriSpeech dataset
     train_split: ['train'] # Name of data splits to be used as training set
     dev_split: ['dev']              # Name of data splits to be used as validation set
     bucketing: True                       # Enable/Disable bucketing
@@ -17,7 +17,7 @@ data:
     delta_window_size: 2
   text:
     mode: 'character'                       # 'character'/'word'/'subword'
-    vocab_file: '/Users/halley/Desktop/DLHLP2020/Homework/hw1/End-to-end-ASR-Pytorch/bopomo_vocab_file.txt'
+    vocab_file: './bopomo_vocab_file.txt'
 
 hparas:                                   # Experiment hyper-parameters
   valid_step: 500
