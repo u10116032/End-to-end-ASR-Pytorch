@@ -12,7 +12,7 @@ HALF_BATCHSIZE_TEXT_LEN = 150
 
 
 def collect_audio_batch(batch, audio_transform, mode):
-    '''Collects a batch, should be list of tuples (audio_path <str>, list of int token <list>) 
+    '''Collects a batch, should be list of tuples (audio_path <str>, list of int token <list>)
        e.g. [(file1,txt1),(file2,txt2),...] '''
 
     # Bucketed batch should be [[(file1,txt1),(file2,txt2),...]]
@@ -44,7 +44,7 @@ def collect_audio_batch(batch, audio_transform, mode):
 
 
 def collect_text_batch(batch, mode):
-    '''Collects a batch of text, should be list of list of int token 
+    '''Collects a batch of text, should be list of list of int token
        e.g. [txt1 <list>,txt2 <list>,...] '''
 
     # Bucketed batch should be [[txt1, txt2,...]]
@@ -68,6 +68,8 @@ def create_dataset(tokenizer, ascending, name, path, bucketing, batch_size,
     # Recognize corpus
     if name.lower() == "librispeech":
         from corpus.librispeech import LibriDataset as Dataset
+    elif name.lower() == "dlhlp":
+        from corpus.dlhlp import DlhlpDataset as Dataset
     else:
         raise NotImplementedError
 
@@ -109,6 +111,8 @@ def create_textset(tokenizer, train_split, dev_split, name, path, bucketing, bat
     # Recognize corpus
     if name.lower() == "librispeech":
         from corpus.librispeech import LibriTextDataset as Dataset
+    elif name.lower() == "dlhlp":
+        from corpus.dlhlp import DlhlpTextDataset as Dataset
     else:
         raise NotImplementedError
 
